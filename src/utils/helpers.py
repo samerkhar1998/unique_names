@@ -1,15 +1,15 @@
 import difflib
 
 def validInput(billFirstName, billLastName, shipFirstName, shipLastName, billNameOnCard):
-    if not billFirstName or not isinstance(billFirstName, str):
+    if not isinstance(billFirstName, str) or not billFirstName.replace(" ", "").isalpha():
         raise ValueError("Invalid or missing 'bill first name': It must be a non-empty string.")
-    if not billLastName or not isinstance(billLastName, str):
+    if not isinstance(billLastName, str) or not billLastName.replace(" ", "").isalpha():
         raise ValueError("Invalid or missing 'bill last name': It must be a non-empty string.")
-    if not shipFirstName or not isinstance(shipFirstName, str):
+    if not isinstance(shipFirstName, str) or not shipFirstName.replace(" ", "").isalpha():
         raise ValueError("Invalid or missing 'ship first name': It must be a non-empty string.")
-    if not shipLastName or not isinstance(shipLastName, str):
+    if not isinstance(shipLastName, str) or not shipLastName.replace(" ", "").isalpha():
         raise ValueError("Invalid or missing 'ship last name': It must be a non-empty string.")
-    if not billNameOnCard or not isinstance(billNameOnCard, str):
+    if not isinstance(shipLastName, str) or not billNameOnCard.replace(" ", "").isalpha():
         raise ValueError("Invalid or missing 'bill card': It must be a non-empty string.")
 
 def normalize(firstName, lastName):
@@ -28,17 +28,3 @@ def correctTypos(name, allNames):
 def isNickName(name, nicknames):
     return True if name in nicknames else False
 
-def isSamePerson(firstPerson, secondPerson):
-    # First name checks
-    if firstPerson.firstName != secondPerson.firstName:
-        return False
-
-    # Middle name checks
-    elif secondPerson.middleName and firstPerson.middleName and secondPerson.middleName != firstPerson.middleName:
-        return False
-
-    # Last name checks
-    elif firstPerson.lastName != secondPerson.lastName:
-        return False
-
-    return True
