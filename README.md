@@ -12,3 +12,14 @@ Once the image is built, you can run it with this command:
 ```bash
 docker run --name unique_names unique_names_image
 ```
+
+### Running Unit-tests
+```bash
+python -m unittest tests.test_counting_unique_names
+```
+
+### Running main
+```bash
+python ./src/main.py
+```
+
